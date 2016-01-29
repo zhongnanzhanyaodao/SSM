@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+                        http://www.springframework.org/schema/context  
+                        http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+                        http://www.springframework.org/schema/util 
+                        http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	<!-- 自动扫描 -->
+	<!--为了避免springMVC的容器和spring的容器都扫描组件而造成事务失效问题，在springMVC容器中只扫描Controller组件 ,其它组件在spring容器中扫描-->
+	<context:component-scan base-package="university.south.center" >
+		<context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>   
+	</context:component-scan>
+	
+	<!-- 将asdb.properties里的内容注入到AsDbInfo对象里去,其他地方可以从AsDbInfo对象里取得相关数据 -->
+	<util:properties id="asDbSettings" location="classpath:asdb.properties"/>
+</beans>
