@@ -30,6 +30,12 @@
 			<!-- 表示开发的时候引入，发布的时候不会加载此包 -->
 			<scope>test</scope>
 		</dependency>
+		<!--引入dubbo api  -->
+		<dependency>
+			<groupId>com.kingdee</groupId>
+			<artifactId>mydubbo-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		
 		<!-- redis -->
 		<dependency>  
@@ -100,6 +106,36 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		
+	
+	  <!-- dubbo -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.5.3</version>
+			<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring</artifactId>
+					</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.3.6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>  
+		     <groupId>com.github.sgroschupf</groupId>  
+			 <artifactId>zkclient</artifactId>  
+			 <version>0.1</version>  
+		</dependency>  
 		
 		<!-- Spring 整合Shiro需要的依赖 -->
 	  <dependency>

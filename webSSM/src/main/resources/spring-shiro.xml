@@ -39,7 +39,7 @@
 		             /static/** = anon <!-- 静态资源访问，不需要权限 -->
 		        	 /login/** = anon 
 		        	 /admin/login/** = anon 
-		             /user/** = authc 
+		             /user/** = anon 
 		             /admin/user/testBootStrap = authc,roles[admin],perms[admin:manage]   <!--必须写在/admin/** = authc前面,因为如果前面匹配了后面就不会匹配了  -->
 		             /admin/** = authc,roles[admin] 
 		             /** =authc 

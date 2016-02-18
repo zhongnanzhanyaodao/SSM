@@ -7,6 +7,7 @@ import java.util.Iterator;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.mydubbo.api.DemoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,9 @@ import com.alibaba.fastjson.JSON;
 public class UserController {
 	@Resource
 	private IUserService userService;
+	
+	@Resource  
+	private DemoService demoService; 
 	
 	@RequestMapping("/toMain")
 	public String toMain(HttpServletRequest request,Model model) {
@@ -106,6 +110,17 @@ public class UserController {
               
         }  
         return "success";  
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/testDubbo")
+	public String testDubbo(HttpServletRequest request,Model model) {
+		System.out.println("Test dubbo begin .............");
+		if (demoService!=null) {
+			return demoService.sayHello("dwj");
+		}
+		return "no people";
 		
 	}
 	
